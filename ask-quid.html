@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ask Quid</title>
+    <script>
+      let smallWindow = null;
+      function openSmallWindow(url) {
+        const width = 700;
+        const height = 700;
+        const left = screen.width - width;
+        const top = screen.height - height;
+        // Check if the window is already open and not closed
+        if (smallWindow && !smallWindow.closed) {
+          smallWindow.focus(); // Bring it to the front
+        } else {
+          // Open a new window if it's not already open
+          smallWindow = window.open(
+            url,
+            '_blank',
+            `width=${width},height=${height},left=${left},top=${top},resizable=no,scrollbars=yes,toolbar=no,menubar=no,location=no,status=no`
+          );
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <style>
+      .circle-button {
+      width: 50px; /* Set equal width and height */
+      height: 50px;
+      color: #1b1f22;
+      border-radius: 50%; /* Makes it a circle */
+      background: linear-gradient(90deg, #72c3c6 0%, #6097e9 100%);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+    }
+    .circle-button:hover {
+      background: linear-gradient(90deg, #87cccf 0%, #78a7ec 100%);
+    }
+    .circle-button:active {
+      background: linear-gradient(90deg, #9cd5d7 0%, #90b6ef 100%);
+    }
+    </style>
+    <button
+      class="circle-button"
+      onclick="openSmallWindow('https://ask.quid.com/c')"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M0 5.18508C2.8583 5.18508 5.18508 2.85966 5.18508 0H8C8 4.41763 4.41763 8 0 8V5.18508ZM8 16H5.18508C5.18508 13.1417 2.85966 10.8149 0 10.8149V8C4.41763 8 8 11.5824 8 16ZM16 8V10.8149C13.1417 10.8149 10.8149 13.1403 10.8149 16H8C8 11.5824 11.5824 8 16 8ZM16 8V5.18508C13.1403 5.18508 10.8149 2.85966 10.8149 0H8C8 4.41763 11.5824 8 16 8Z"
+          fill="#1B1F22"
+        />
+      </svg>
+    </button>
+  </body>
+</html>
